@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="style.css" />
+    <title>NO JAVA SCRIPT ENABLED</title>
+    <style>
+      .container {
+        position: absolute;
+        top: 38%;
+        text-align: center;
+        left: 33%;
+      }
+
+      .alert,
+      .subalert {
+        display: block;
+        font-size: 5rem;
+      }
+
+      .alert {
+        margin-bottom: -5.8rem; /* Adjust as needed */
+        color: #f0e5d8;
+        display: block ruby;
+      }
+
+      .subalert {
+        font-size: 1.8rem;
+        color: #f0e5d8;
+        position: relative;
+        top: 7rem;
+      }
+
+      .highlighted {
+        color: #ffc478;
+      }
+    </style>
+    <script>
+      // redirection to the main website if javascript is enabled
+      document.location = "index.html";
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="alert">
+        <span class="highlighted">Javascript</span> Is Not Enabled!
+      </h1>
+      <p class="subalert">
+        Please Enable <span class="highlighted">Javascript</span> Or Use Another
+        Web browser That Supports <span class="highlighted">Javascript</span> :)
+      </p>
+    </div>
+  </body>
+</html>
