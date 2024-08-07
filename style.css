@@ -169,3 +169,54 @@ main {
 .hidden {
   display: none;
 }
+
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    margin: 1rem;
+    height: auto;
+  }
+  html {
+    font-size: 60%;
+  }
+  .player {
+    flex: 100%;
+    padding: 8.5rem;
+  }
+
+  .btn--new {
+    top: 1.75rem;
+  }
+
+  .btn--roll,
+  .btn--hold {
+    margin-top: -6rem;
+  }
+
+  .dice {
+    height: 7rem;
+    left: 88%;
+    top: 2rem;
+    /* player2 */
+    /* left: 12%;
+    top: 69rem; */
+  }
+
+  .score {
+    font-size: 4rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .current {
+    width: 70%;
+    padding: 1.5rem;
+  }
+
+  .current-label {
+    font-size: 1.4rem;
+  }
+
+  .current-score {
+    font-size: 2.5rem;
+  }
+}

@@ -63,12 +63,27 @@ const switchPlayer = function () {
   switchAudio.play();
 };
 
+// Media query for mobile view
+const mediaQuery = window.matchMedia("(max-width: 768px)");
+const dicePlace = function (e) {
+  if (mediaQuery.matches) {
+    if (!currentPlayer) {
+      dice.style.left = "12%";
+      dice.style.top = "69rem";
+    } else {
+      dice.style.left = "88%";
+      dice.style.top = "2rem";
+    }
+  }
+};
+
 // Function to roll the dice on click
 rollBtn.addEventListener("click", function () {
   diceCurrent = Math.floor(Math.random() * 6) + 1;
 
   // Displaying the dice image
   dice.src = `dice-${diceCurrent}.png`;
+  dicePlace();
   dice.classList.contains("hidden") ? dice.classList.remove("hidden") : null;
 
   // Checking if the dice roll is not 1
@@ -81,6 +96,7 @@ rollBtn.addEventListener("click", function () {
     playerCurrent.textContent = 0;
     currentScore = 0;
     switchPlayer();
+    dicePlace();
   }
 });
 
@@ -96,6 +112,7 @@ holdBtn.addEventListener("click", function () {
     currentScore = 0;
     playerCurrent.textContent = 0;
     switchPlayer();
+    dicePlace();
   }
 });
 
@@ -104,33 +121,34 @@ newBtn.addEventListener("click", function () {
   initialize();
   currentPlayer = false;
   switchPlayer();
+  dicePlace();
   stopButton(0);
 });
 
-// preventing the user from using devtools
-window.addEventListener("keydown", e =>
-  e.key === "F12" ||
-  (e.ctrlKey && e.shiftKey && (e.key === "C" || e.key === "I"))
-    ? e.preventDefault()
-    : null
-);
-window.addEventListener("contextmenu", e => e.preventDefault());
+// // preventing the user from using devtools
+// window.addEventListener("keydown", e =>
+//   e.key === "F12" ||
+//   (e.ctrlKey && e.shiftKey && (e.key === "C" || e.key === "I"))
+//     ? e.preventDefault()
+//     : null
+// );
+// window.addEventListener("contextmenu", e => e.preventDefault());
 
-// Checking for devtools and taking action if detected
-let devtoolsOpen = false;
-const threshold = 160;
+// // Checking for devtools and taking action if detected
+// let devtoolsOpen = false;
+// const threshold = 160;
 
-setInterval(() => {
-  const widthThreshold = window.outerWidth - window.innerWidth > threshold;
-  const heightThreshold = window.outerHeight - window.innerHeight > threshold;
+// setInterval(() => {
+//   const widthThreshold = window.outerWidth - window.innerWidth > threshold;
+//   const heightThreshold = window.outerHeight - window.innerHeight > threshold;
 
-  if (widthThreshold || heightThreshold) {
-    if (!devtoolsOpen) {
-      devtoolsOpen = true;
-      window.location.href =
-        "https://www.youtube.com/watch?v=qcOtg1L2Jc4&autoplay=1&mute=1&loop=1";
-    }
-  } else {
-    devtoolsOpen = false;
-  }
-}, 1000);
+//   if (widthThreshold || heightThreshold) {
+//     if (!devtoolsOpen) {
+//       devtoolsOpen = true;
+//       window.location.href =
+//         "https://www.youtube.com/watch?v=qcOtg1L2Jc4&autoplay=1&mute=1&loop=1";
+//     }
+//   } else {
+//     devtoolsOpen = false;
+//   }
+// }, 1000);
