@@ -125,30 +125,30 @@ newBtn.addEventListener("click", function () {
   stopButton(0);
 });
 
-// // preventing the user from using devtools
-// window.addEventListener("keydown", e =>
-//   e.key === "F12" ||
-//   (e.ctrlKey && e.shiftKey && (e.key === "C" || e.key === "I"))
-//     ? e.preventDefault()
-//     : null
-// );
-// window.addEventListener("contextmenu", e => e.preventDefault());
+// preventing the user from using devtools
+window.addEventListener("keydown", e =>
+  e.key === "F12" ||
+  (e.ctrlKey && e.shiftKey && (e.key === "C" || e.key === "I"))
+    ? e.preventDefault()
+    : null
+);
+window.addEventListener("contextmenu", e => e.preventDefault());
 
-// // Checking for devtools and taking action if detected
-// let devtoolsOpen = false;
-// const threshold = 160;
+// Checking for devtools and taking action if detected
+let devtoolsOpen = false;
+const threshold = 160;
 
-// setInterval(() => {
-//   const widthThreshold = window.outerWidth - window.innerWidth > threshold;
-//   const heightThreshold = window.outerHeight - window.innerHeight > threshold;
+setInterval(() => {
+  const widthThreshold = window.outerWidth - window.innerWidth > threshold;
+  const heightThreshold = window.outerHeight - window.innerHeight > threshold;
 
-//   if (widthThreshold || heightThreshold) {
-//     if (!devtoolsOpen) {
-//       devtoolsOpen = true;
-//       window.location.href =
-//         "https://www.youtube.com/watch?v=qcOtg1L2Jc4&autoplay=1&mute=1&loop=1";
-//     }
-//   } else {
-//     devtoolsOpen = false;
-//   }
-// }, 1000);
+  if (widthThreshold || heightThreshold) {
+    if (!devtoolsOpen) {
+      devtoolsOpen = true;
+      window.location.href =
+        "https://www.youtube.com/watch?v=qcOtg1L2Jc4&autoplay=1&mute=1&loop=1";
+    }
+  } else {
+    devtoolsOpen = false;
+  }
+}, 1000);
