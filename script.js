@@ -134,21 +134,3 @@ window.addEventListener("keydown", e =>
 );
 window.addEventListener("contextmenu", e => e.preventDefault());
 
-// Checking for devtools and taking action if detected
-let devtoolsOpen = false;
-const threshold = 160;
-
-setInterval(() => {
-  const widthThreshold = window.outerWidth - window.innerWidth > threshold;
-  const heightThreshold = window.outerHeight - window.innerHeight > threshold;
-
-  if (widthThreshold || heightThreshold) {
-    if (!devtoolsOpen) {
-      devtoolsOpen = true;
-      window.location.href =
-        "https://www.youtube.com/watch?v=qcOtg1L2Jc4&autoplay=1&mute=1&loop=1";
-    }
-  } else {
-    devtoolsOpen = false;
-  }
-}, 1000);
